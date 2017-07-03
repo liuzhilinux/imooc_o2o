@@ -1,0 +1,74 @@
+{include file="public/header"}
+
+    <!--支付第二步-->
+    <div class="firstly">
+        <div class="search">
+            <div class="w-order-nav-new">
+                <ul class="nav-wrap">
+                    <li>
+                        <div class="no"><span>1</span></div>
+                        <span class="text">确认订单</span>
+                    </li>
+                    <li class="to-line "></li>
+                    <li class="current">
+                        <div class="no"><span>2</span></div>
+                        <span class="text">选择支付方式</span>
+                    </li>
+                    <li class="to-line "></li>
+                    <li class="">
+                        <div class="no"><span>3</span></div>
+                        <span class="text">购买成功</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="order_infor_module">
+            <div class="order_details">
+                <table width="100%">
+                    <tbody> 
+                    <tr>
+                        <td class="fl_left ">
+                            <ul class="order-list">
+                                <li>
+                                    <span class="order-list-no">商品:</span>
+                                    <span class="order-list-name">{$deal.name}</span><span class="order-list-number">{$order.deal_count}份</span>
+                                </li>
+                                <li>
+                                    <span class="order-list-no">订单:</span><span class="order-list-name">{$order.out_trade_no}</span>
+                                    <span class="order-list-name"></span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="fl_right">
+                                <dt>应付金额：</dt>
+                                <dd class="money"><span>{$order.total_price}元</span></dd>
+                            </dl>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div align="center">
+            <h1 class="title">使用微信支付</h1>
+            <img src="" alt="微信支付二维码" style="width: 240px;height: 240px;">
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <ul class="first">
+           
+        </ul>
+        <ul class="second">
+            
+        </ul>
+    </div>
+
+    <script>
+
+
+    </script>
+{include file="public/footer"}

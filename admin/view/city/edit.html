@@ -1,0 +1,54 @@
+<!--包含头部文件-->
+{include file="public/header" /}
+<body>
+<div class="page-container">
+	<form class="form form-horizontal form-o2o-add" id="form-o2o-add" method="post" action="{:url('city/update')}">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>城市名称：</label>
+			<div class="formControls col-xs-8 col-sm-9 city_name">
+				<input type="text" class="input-text" value="{$city.name}" placeholder="" id="name" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>城市英文名：</label>
+			<div class="formControls col-xs-8 col-sm-9 city_uname">
+				<input type="text" class="input-text" value="{$city.uname}" placeholder="" id="uname" name="uname">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上级栏目：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<span class="select-box">
+				<select name="parent_id" class="select">
+					<option value="0">中国</option>
+					{$tree|showCityTree_2=$city.parent_id}
+				</select>
+				</span>
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<input type="hidden" name="id" value="{$city.id}">
+				<button  type="submit" class="btn btn-primary radius" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+<script type="text/javascript">
+	var SCOPE = {
+		'api' : '{$api}',
+		'appid' : '{$appid}',
+		'key' : '{$key}',
+		'salt' : '{$salt}',
+		'from' : '{$from}',
+		'to' : '{$to}',
+	};
+
+</script>
+
+<!--包含头部文件-->
+{include file="public/footer" /}

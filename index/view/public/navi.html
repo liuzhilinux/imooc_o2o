@@ -1,0 +1,45 @@
+
+    <div class="nav-bar-header">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <span class="item">全部分类</span>
+                    <span class="arrow-down"></span>
+                    <div class="left-menu">
+                    
+                    {volist name='cats' id='vo'}
+
+                        <div class="level-item">
+                            <div class="first-level">
+                                <dl>
+                                    <dt class="title"><a href="{:url('/lists', ['id' => $key])}" target="_top">{$vo.name}</a></dt>
+                        {volist name="vo['subs']" id='v' length="2"}
+                                    <dd><a href="{:url('/lists', ['id' => $key])}" target="_top" class="">{$v}</a></dd>
+                        {/volist}
+                                </dl>
+                            </div>
+                            <div class="second-level">
+                                <div class="section">
+                                    <div class="section-item clearfix">
+                                        <h3>热门分类</h3>
+                                        <ul>
+                        {volist name='vo.subs' id='v'}
+                                            <li><a href="{:url('/lists', ['id' => $key])}" target="_blank" class="">{$v}</a></li>
+                        {/volist}
+                                        </ul>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    {/volist}
+                        
+                    </div>
+                    
+                </li>
+                <li class="nav-item"><a class="item first active" href="{:url('/')}">首页</a></li>
+                <li class="nav-item"><a class="item">团购</a></li>
+                <li class="nav-item"><a class="item">商户</a></li>
+            </ul>
+        </div>
+    </div>

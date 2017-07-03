@@ -1,0 +1,107 @@
+{include file="public/header,public/navi"}
+    <div class="container">
+        <div class="top-container">
+            <div class="mid-area">
+                <div class="slide-holder" id="slide-holder">
+                    <a href="#" class="slide-prev"><i class="slide-arrow-left"></i></a>
+                    <a href="#" class="slide-next"><i class="slide-arrow-right"></i></a>
+                    <ul class="slideshow">
+                    {volist name='centerReatureds' id='vo'}
+                        <li><a href="{$vo.url}" class="item-large" target="_blank"><img class="ad-pic" src="{$vo.image}" /></a></li>
+                    {/volist}
+
+                    </ul>
+                </div>
+                <div class="list-container">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="right-sidebar">
+            <div class="right-ad">
+                <ul class="slidepic">
+                {volist name='rightReatureds' id='vo'}
+                    <li><a href="{$vo.url}" class="item-large" target="_blank"><img src="{$vo.image}" /></a></li>
+                {/volist}
+
+                </ul>
+            </div>
+            
+        </div>
+        <div class="content-container">
+            <div class="no-recom-container">
+                <div class="floor-content-start">
+
+
+                {volist name='cats' id='vo'}
+                <?php $cate_id = $key;?>
+                    <div class="floor-content">
+                        <div class="floor-header">
+                            <h3>{$vo.name}</h3>
+                            <ul class="reco-words">
+                        {volist name="vo['subs']" id='v' length="5"}
+                                <li><a href="{:url('/lists', ['id' => $key])}" target="_blank">{$v}</a></li>
+                        {/volist}
+                                <li><a class="no-right-border no-right-padding" href="{:url('/lists', ['id' => $cate_id])}" target="_blank">全部<span class="all-cate-arrow"></span></a></li>
+                            </ul>
+                        </div>
+                        <ul class="itemlist eight-row-height">
+
+                        {if !array_key_exists($cate_id, $dealList)}
+
+                            <span style="color: red;font-size: 24px;">商家暂时没有发布团购信息，敬请期待。</span>
+
+                        {else}
+
+                            {volist name='dealList[$cate_id]' id='v'}                  
+
+                            <li class="j-card">
+                                <a>
+                                    <div class="imgbox">
+                                        <ul class="marketing-label-container">
+                                            <li class="marketing-label marketing-free-appoint"></li>
+                                        </ul>
+                                        <div class="range-area">
+                                            <div class="range-bg"></div>
+                                            <div class="range-inner">
+                                                <span class="white-locate"></span>
+                                                {$cityMap[$v.city_id]}
+                                            </div>
+                                        </div>
+                                        <div class="borderbox">
+                                            <img src="{$v.image}" />
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="contentbox">
+                                    <a href="{:url('/detail', ['id'=> $v.id])}" target="_blank">
+                                        <div class="header">
+                                            <h4 class="title ">{$v.name}</h4>
+                                        </div>
+                                        <p>{$v.description}</p>
+                                    </a>
+                                    <div class="add-info"></div>
+                                    <div class="pinfo">
+                                        <span class="price"><span class="moneyico">¥</span>{$v.current_price}</span>
+                                        <span class="ori-price">价值<span class="price-line">¥<span>{$v.origin_price}</span></span></span>
+                                    </div>
+                                    <div class="footer">
+                                        <span class="comment">4.9分</span><span class="sold">已售{$v.buy_count}</span>
+                                        <div class="bottom-border"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            {/volist}
+
+                        {/if}
+
+                        </ul>
+                    </div>
+                {/volist}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{include file="public/footer"}
